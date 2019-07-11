@@ -1,0 +1,35 @@
+Meeting - 7/10/19
+
+Project has been ported over to ASP.NET.
+Through research, it has been determined that for the remaining duration
+of the project that an ASP.NET app is required to fulfill the requirements 
+of Phase 2 and onward. An MVC is required to connect the database to the scraper
+to import the data into the database.
+
+Project is currently BEHIND SCHEDULE.
+
+Phase 2 Deadline: 7/15/19
+
+Problems encountered:
+
+Needed to switch over from console application to ASP.NET application.
+Too much time was spent to research and decide an approach to this, and it's
+been difficult to reach out to coworkers during the break.
+However, support has been received, and it has been determined that the project
+will be moved over to the ASP.NET app for the remaining duration. 
+
+While deadline will be tight, the good news is that some of the work for Phase 3
+has been laid out with the switch over to an ASP.NET app. Therefore, less work may
+need to be done to complete the front-end for phase 3.
+
+Today's item:
+
+Port over scraper code to ASP.NET application. Research ASP.NET 
+and develop an understanding of the infrastructure of an ASP.NET application.
+
+Plan moving forward:
+
+-Import data scraped into table fields.
+
+
+
