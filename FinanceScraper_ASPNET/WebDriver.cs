@@ -49,6 +49,8 @@ namespace FinanceScraper_ASPNET
                 var stockData = stock.Text;
                 Console.Write(stockData);
             }
+
+
         }
     }
 }

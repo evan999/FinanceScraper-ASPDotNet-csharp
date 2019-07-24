@@ -1,0 +1,114 @@
+﻿@model FinanceScraper_ASPNET.Models.Stock
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Change)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Change)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarketTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarketTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageVolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageVolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C52WeekRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C52WeekRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarketCap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarketCap)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

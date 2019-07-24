@@ -1,0 +1,29 @@
+Meeting - 7/22/2019
+
+Items completed:
+
+Phase 2 is now complete! Onward to Phase 3: Building the Front-End (ASP.NET).
+
+-Scraper scrapes data through web table by each table data td row on finance page.
+-Data is imported into Stocks table.
+
+Today's todo items:
+
+-Import scraper code into ASP.NET application.
+-Get familiar with ASP.NET environment.
+-Refactor scraper code and objectify!
+
+Phase 3 Items:
+
+-User authentication
+-View past scraped data
+-Request new scrape element
+	-Store in object called ScrapedElement?
+-About page - serves as retrospect for the scraper project
+-Import scraper project into web project
+-Ensure request Scrape element activates scraper system.
+
+-Start thinking of approaches to the first few items:
+	-User authentication - log in multiple users to application
+	-Add About page.
+	-New object to store data of scrape instance

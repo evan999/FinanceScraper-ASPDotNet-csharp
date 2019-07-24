@@ -26,5 +26,7 @@ namespace FinanceScraper_ASPNET.Controllers
 
             return View();
         }
+
+       
     }
 }
