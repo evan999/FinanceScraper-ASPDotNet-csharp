@@ -1,0 +1,19 @@
+Meeting - 7/25/19
+
+Items completed:
+
+-Import scraper code to ASP.NET project
+-Button to initialize scraping.
+-Stocks history page
+-Integrate database with ASP.NET project
+-Login, Register, and Logoff functions work properly.
+
+Problems:
+
+-Identity insert issue, cannot insert records into database
+
+Goals Today:
+
+-Fix Identity insert bug
+-Research authentication to allow only logged in users
+to view Stocks page.

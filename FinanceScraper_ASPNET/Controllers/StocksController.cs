@@ -121,6 +121,7 @@ namespace FinanceScraper_ASPNET.Controllers
         
         public ActionResult Scrape()
         {
+
             IWebDriver driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://finance.yahoo.com/");
