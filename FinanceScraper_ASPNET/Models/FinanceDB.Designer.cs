@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\emesh\source\repos\FinanceScraper_ASPNET\FinanceScraper_ASPNET\Models\FinanceModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\emesh\source\repos\FinanceScraper_ASPNet\FinanceScraper_ASPNET\Models\FinanceDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -15,7 +15,7 @@ namespace FinanceScraper_ASPNET.Controllers
 {
     public class StocksController : Controller
     {
-        private FinanceEntities db = new FinanceEntities();
+        private FinanceDB db = new FinanceDB();
 
         // GET: Stocks
         public ActionResult Index()
@@ -121,7 +121,9 @@ namespace FinanceScraper_ASPNET.Controllers
         
         public ActionResult Scrape()
         {
-
+            // ChromeOptions option = new ChromeOptions();
+            // option.AddArgument("--headless");
+            // option.AddArgument("window-size=1200,1100");
             IWebDriver driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://finance.yahoo.com/");
@@ -158,7 +160,7 @@ namespace FinanceScraper_ASPNET.Controllers
             List<IWebElement> rows = stockTable.FindElements(By.XPath("//tr")).ToList();
             int rowsCount = rows.Count;
 
-            using (var context = new FinanceEntities())
+            using (var context = new FinanceDB())
             {
                 //var stockTable = driver.FindElement(By.XPath("//tbody"));
 
@@ -209,7 +211,7 @@ namespace FinanceScraper_ASPNET.Controllers
                     context.SaveChanges();
                 }
 
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

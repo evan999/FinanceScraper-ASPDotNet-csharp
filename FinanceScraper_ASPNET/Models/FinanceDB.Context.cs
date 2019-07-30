@@ -13,10 +13,10 @@ namespace FinanceScraper_ASPNET.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinanceEntities : DbContext
+    public partial class FinanceDB : DbContext
     {
-        public FinanceEntities()
-            : base("name=FinanceEntities")
+        public FinanceDB()
+            : base("name=FinanceDB")
         {
         }
     

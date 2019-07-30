@@ -11,12 +11,9 @@ namespace FinanceScraper_ASPNET.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Stock
     {
-        
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Symbol { get; set; }
         public string LastPrice { get; set; }
