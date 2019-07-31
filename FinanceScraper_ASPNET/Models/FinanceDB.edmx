@@ -4,30 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FinanceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FinanceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Stocks">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Symbol" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="LastPrice" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Change" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="ChangeRate" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Currency" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MarketTime" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Volume" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Shares" Type="varchar" MaxLength="10" />
-          <Property Name="AverageVolume" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="DayRange" Type="varchar" MaxLength="50" />
-          <Property Name="52WeekRange" Type="varchar" MaxLength="50" />
-          <Property Name="MarketCap" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Symbol" Type="nvarchar(max)" />
+          <Property Name="LastPrice" Type="nvarchar(max)" />
+          <Property Name="Change" Type="nvarchar(max)" />
+          <Property Name="ChangeRate" Type="nvarchar(max)" />
+          <Property Name="Currency" Type="nvarchar(max)" />
+          <Property Name="MarketTime" Type="nvarchar(max)" />
+          <Property Name="Volume" Type="nvarchar(max)" />
+          <Property Name="Shares" Type="nvarchar(max)" />
+          <Property Name="AverageVolume" Type="nvarchar(max)" />
+          <Property Name="MarketCap" Type="nvarchar(max)" />
+          <Property Name="Timestamp" Type="datetime" />
         </EntityType>
         <EntityContainer Name="FinanceDBModelStoreContainer">
           <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinanceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -36,18 +34,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Change" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ChangeRate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MarketTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Volume" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Shares" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="AverageVolume" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DayRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="C52WeekRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MarketCap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Change" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeRate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MarketTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Volume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shares" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AverageVolume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MarketCap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="FinanceDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
@@ -61,6 +58,7 @@
           <EntitySetMapping Name="Stocks">
             <EntityTypeMapping TypeName="FinanceDBModel.Stock">
               <MappingFragment StoreEntitySet="Stocks">
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="LastPrice" ColumnName="LastPrice" />
@@ -71,8 +69,6 @@
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Shares" ColumnName="Shares" />
                 <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
-                <ScalarProperty Name="DayRange" ColumnName="DayRange" />
-                <ScalarProperty Name="C52WeekRange" ColumnName="52WeekRange" />
                 <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
               </MappingFragment>
             </EntityTypeMapping>

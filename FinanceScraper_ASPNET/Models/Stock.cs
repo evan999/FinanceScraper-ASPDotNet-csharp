@@ -24,8 +24,7 @@ namespace FinanceScraper_ASPNET.Models
         public string Volume { get; set; }
         public string Shares { get; set; }
         public string AverageVolume { get; set; }
-        public string DayRange { get; set; }
-        public string C52WeekRange { get; set; }
         public string MarketCap { get; set; }
+        public DateTime Timestamp { get; set; }
     }
 }

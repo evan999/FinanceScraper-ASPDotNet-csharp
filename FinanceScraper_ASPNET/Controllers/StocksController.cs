@@ -56,7 +56,7 @@ namespace FinanceScraper_ASPNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Symbol,LastPrice,Change,ChangeRate,Currency,MarketTime,Volume,Shares,AverageVolume,DayRange,C52WeekRange,MarketCap")] Stock stock)
+        public ActionResult Create([Bind(Include = "Id,Symbol,LastPrice,Change,ChangeRate,Currency,MarketTime,Volume,Shares,AverageVolume,MarketCap,Timestamp")] Stock stock)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace FinanceScraper_ASPNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Symbol,LastPrice,Change,ChangeRate,Currency,MarketTime,Volume,Shares,AverageVolume,DayRange,C52WeekRange,MarketCap")] Stock stock)
+        public ActionResult Edit([Bind(Include = "Id,Symbol,LastPrice,Change,ChangeRate,Currency,MarketTime,Volume,Shares,AverageVolume,MarketCap,Timestamp")] Stock stock)
         {
             if (ModelState.IsValid)
             {
@@ -184,6 +184,8 @@ namespace FinanceScraper_ASPNET.Controllers
                     string shareData = cells.ElementAt(7).Text;                   
                     string averageVolumeData = cells.ElementAt(8).Text;                    
                     string marketCapData = cells.ElementAt(12).Text;
+                    DateTime timeStampData = DateTime.Now;
+
                     
 
                     var stockRecord = new Stock
@@ -197,7 +199,8 @@ namespace FinanceScraper_ASPNET.Controllers
                         Volume = volumeData,
                         Shares = shareData,
                         AverageVolume = averageVolumeData,
-                        MarketCap = marketCapData
+                        MarketCap = marketCapData,
+                        Timestamp = timeStampData
                     };
 
                     context.Stocks.Add(stockRecord);
