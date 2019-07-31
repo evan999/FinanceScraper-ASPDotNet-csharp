@@ -1,0 +1,9 @@
+7/31/2019 Meeting
+
+Today's goals:
+
+-Add timestamp field to database and model
+-Track timestamp data for each scrape.
+-About page - add summary
+
+-Start HTMLAgilityPack scraper project.
