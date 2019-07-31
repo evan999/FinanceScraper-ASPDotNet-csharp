@@ -13,6 +13,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace FinanceScraper_ASPNET.Controllers
 {
+    [Authorize]
     public class StocksController : Controller
     {
         private FinanceDB db = new FinanceDB();
@@ -23,6 +24,12 @@ namespace FinanceScraper_ASPNET.Controllers
             return View(db.Stocks.ToList());
         }
 
+        // GET: Stock
+        public ActionResult Recent()
+        {
+            return View(db.Stocks.OrderByDescending(x => x.Id).Take(11).ToList());
+        }
+        
         // GET: Stocks/Details/5
         public ActionResult Details(int? id)
         {
@@ -121,10 +128,10 @@ namespace FinanceScraper_ASPNET.Controllers
         
         public ActionResult Scrape()
         {
-            // ChromeOptions option = new ChromeOptions();
-            // option.AddArgument("--headless");
-            // option.AddArgument("window-size=1200,1100");
-            IWebDriver driver = new ChromeDriver();
+            ChromeOptions option = new ChromeOptions();
+            option.AddArgument("--headless");
+            option.AddArgument("window-size=1200,1100");
+            IWebDriver driver = new ChromeDriver(option);
 
             driver.Navigate().GoToUrl("https://finance.yahoo.com/");
 
@@ -162,36 +169,22 @@ namespace FinanceScraper_ASPNET.Controllers
 
             using (var context = new FinanceDB())
             {
-                //var stockTable = driver.FindElement(By.XPath("//tbody"));
-
                 for (int row = 1; row < rowsCount; row++)
                 {
                     List<IWebElement> cells = rows.ElementAt(row).FindElements(By.TagName("td")).ToList();
                     int cellsCount = cells.Count;
 
-
-                    // string cellText = cells.ElementAt(cell).ToString();
-                    // Console.WriteLine("Data: " + cellText);
                     string symbolData = cells.ElementAt(0).Text;
-                    Console.WriteLine("Symbol: " + symbolData);
                     string lastPriceData = cells.ElementAt(1).Text;
-                    Console.WriteLine("Last Price: " + lastPriceData);
                     string changeData = cells.ElementAt(2).Text;
-                    Console.WriteLine("Change: " + changeData);
-                    string changeRateData = cells.ElementAt(3).Text;
-                    Console.WriteLine("Change Rate: " + changeRateData);
-                    string currencyData = cells.ElementAt(4).Text;
-                    Console.WriteLine("Currency: " + currencyData);
+                    string changeRateData = cells.ElementAt(3).Text; 
+                    string currencyData = cells.ElementAt(4).Text;                  
                     string marketTimeData = cells.ElementAt(5).Text;
-                    Console.WriteLine("Market Time: " + marketTimeData);
-                    string volumeData = cells.ElementAt(6).Text;
-                    Console.WriteLine("Volume: " + volumeData);
-                    string shareData = cells.ElementAt(7).Text;
-                    Console.WriteLine("Shares: " + shareData);
-                    string averageVolumeData = cells.ElementAt(8).Text;
-                    Console.WriteLine("Avg Vol Data: " + averageVolumeData);
+                    string volumeData = cells.ElementAt(6).Text;                    
+                    string shareData = cells.ElementAt(7).Text;                   
+                    string averageVolumeData = cells.ElementAt(8).Text;                    
                     string marketCapData = cells.ElementAt(12).Text;
-                    Console.WriteLine("Market Cap: " + marketCapData);
+                    
 
                     var stockRecord = new Stock
                     {
@@ -211,7 +204,7 @@ namespace FinanceScraper_ASPNET.Controllers
                     context.SaveChanges();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Recent");
             }
         }
 

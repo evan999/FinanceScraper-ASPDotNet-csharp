@@ -1,0 +1,19 @@
+Meeting - 7/30/2019
+
+Items completed:
+
+-Scraper code-> works headlessly
+-Identity bug issue resolved-> built new model
+-Scrape button works, starts scraper
+-Stock History page shows all scraped stock data
+
+Items remaining:
+
+-Implement page that shows data of current scrape (after scrape is performed)
+
+Add new page to store recent scrape data
+-Controller?
+-View?
+
+-Redirect to new page after scrape operation completes.
+
